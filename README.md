@@ -47,7 +47,7 @@ HTML、CSS、JavaScriptで作成したシンプルなカウントダウンタイ
 
 ## 作者情報
 - 名前: sari
-- GitHub: [Simple Timer 02](https://github.com/saO-Ori/simple-timer_02/)
+- GitHub: [Simple Timer 02](https://sao-ori.github.io/simple-timer_02/)
 
 ---
 
