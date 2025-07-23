@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="" />
+	<title>Simple Timer</title>
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+	<header>
+		<h1 id="title">Simple Timer</h1>
+	</header>
+	<article>
+		<div class="container neumorphism">
+			<!-- 左側：タイマー表示と入力欄 -->
+			<div class="left-block">
+				<div id="timeWrapper">
+					<h2 id="time">00:00</h2>
+					<input type="text" id="inputTime" inputmode="numeric" pattern="[0-9]*" placeholder="例: 1000 → 10:00"
+						autocomplete="off" spellcheck="false" title="2桁＝秒、3桁＝mm:ss、5桁＝hh:mm:ss" />
+				</div>
+			</div>
+
+			<!-- 右側：プリセットと操作ボタン -->
+			<div class="right-block">
+				<div class="preset-buttons">
+					<button onclick="setPreset(180)">3分</button>
+					<button onclick="setPreset(240)">4分</button>
+					<button onclick="setPreset(300)">5分</button>
+				</div>
+
+				<div class="button-row">
+					<button id="startButton">スタート</button>
+					<button id="resetButton">リセット</button>
+				</div>
+			</div>
+		</div>
+
+		<p id="stopHint" class="stop-hint">クリック（またはタップ）でアラームを停止できます</p>
+		<audio id="alarmSound" src="image/alert.mp3" preload="auto" loop></audio>
+	</article>
+	<footer>
+		<p class="copy">&copy; 2025</p>
+	</footer>
+	<script src="js/script.js"></script>
+</body>
+
+</html>

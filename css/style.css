@@ -1,0 +1,206 @@
+@charset "UTF-8";
+
+/* ========== 共通リセット ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #e0e0e0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ========== ヘッダー ========== */
+#title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #000;
+}
+
+/* ========== 中央コンテナ ========== */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  margin-top: 15px;
+  width: 320px;
+  max-width: 94vw;
+  border-radius: 30px;
+  text-align: center;
+  background: #e0e0e0;
+  box-shadow: 10px 10px 30px #bebebe,
+    -10px -10px 30px #ffffff;
+  transition: all 0.3s ease;
+}
+
+.left-block,
+.right-block {
+  width: 100%;
+}
+
+/* タイマー表示 */
+#time {
+  font-size: 48px;
+  margin-top: 16px;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+/* クリックエリア */
+#timeWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+/* 入力欄（初期は非表示） */
+#inputTime {
+  width: 100%;
+  padding: 10px;
+  margin: 8px auto;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: #e0e0e0;
+  box-shadow: inset 5px 5px 10px #bebebe,
+    inset -5px -5px 10px #ffffff;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* 編集中だけ表示 */
+#timeWrapper.editing #inputTime {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 入力中（背景凹み表現） */
+#timeWrapper.editing {
+  box-shadow: inset 5px 5px 10px #bebebe,
+    inset -5px -5px 10px #ffffff;
+  border-radius: 20px;
+  /* padding: 20px; */
+  background: #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+/* ボタン群 */
+.button-row,
+.preset-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 16px;
+}
+
+.button-row {
+  margin-bottom: 0;
+}
+
+/* ボタン共通 */
+button {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 15px;
+  border: none;
+  background: #e0e0e0;
+  color: #333;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 5px 5px 10px #bebebe,
+    -5px -5px 10px #ffffff;
+  transition: all 0.2s ease;
+}
+
+button:active {
+  box-shadow: inset 5px 5px 10px #bebebe,
+    inset -5px -5px 10px #ffffff;
+}
+
+/* アラーム停止ヒント */
+#stopHint {
+  font-size: 12px;
+  color: #666;
+  margin-top: 10px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  height: 1em;
+  text-align: center;
+}
+
+#stopHint.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ========== フッター ========== */
+.copy {
+  font-size: 12px;
+  margin-top: 24px;
+  color: #333;
+}
+
+/* ========== 横画面（高さが小さい）用レイアウト切替 ========== */
+@media screen and (max-height: 600px) {
+  /* タイトル調整 */
+  #title {
+    font-size: 32px;
+    z-index: 11;
+  }
+
+  /* メインエリア調整 */
+  .container {
+    padding: 20px;
+    margin-top: 3px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 90vw;
+  }
+
+  /* タイマー表示調整 */
+  #time {
+    margin-top: 8px;
+  }
+
+  /* フレックス左右配置調整 */
+  .left-block,
+  .right-block {
+    width: 48%;
+  }
+
+  /* 入力エリア */
+  #inputTime {
+    font-size: 14px;
+  }
+
+  .preset-buttons {
+    margin-top: 8px;
+  }
+
+  .stop-hint {
+    font-size: 11px;
+  }
+
+  .copy {
+    margin-top: 8px;
+  }
+  }
